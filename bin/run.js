@@ -5,7 +5,14 @@ const slackClient = require("../server/slackClient.js");
 const slackToken = "xoxb-330610783633-368156099938-uFoZqQbBY0G04Wg5ujQnMQxf";
 const slackLogLevel = "debug";
 
-const rtm = slackClient.init(slackToken, slackLogLevel);
+
+
+const witToken = "RSI4VN7RZSFR6MS5ESBFHU3G3XED4UPT";
+const witClient = require("../server/witClient")(witToken);
+
+
+
+const rtm = slackClient.init(slackToken, slackLogLevel, witClient);
 
 rtm.start();
 

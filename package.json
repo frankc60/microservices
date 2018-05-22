@@ -1,0 +1,15 @@
+{
+  "name": "microservices",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/service.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "frankc60",
+  "license": "ISC",
+  "dependencies": {
+    "@slack/client": "^4.2.2",
+    "express": "^4.16.3"
+  }
+}

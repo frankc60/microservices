@@ -30,17 +30,41 @@ module.exports.init = function slackClient(token, logLvl='debug', nlpClient) {
         // Log the message
         console.log(`(channel:${message.channel}) ${message.user} says: ${message.text}`);
 
-        nlp.ask(message.text);
+        nlp.ask(message.text, (err, res) => {
+            
+            const conversationId = message.channel;
 
-        const conversationId = message.channel;
+            if(err) {
+                console.log("error " + err);
+               // return;
+            }
 
-        // The RTM client can send simple string messages
-        rtm.sendMessage('Hello there', conversationId)
-          .then((res) => {
-            // `res` contains information about the posted message
-            console.log('Message sent: ', res.ts);
-          })
-          .catch(console.error);
+            console.log(res);
+            res = JSON.parse(res);
+
+             if(!res.entities.intent) {
+                return rtm.sendMessage("sorry, i don't what you are talking about.",conversationId)
+            } else if(res.entities.intent[0].value == "time" && res.entities.location) {
+                return rtm.sendMessage(`i don't know the time in ${res.entities.location[0].value}`,conversationId)
+
+            } else {
+                return rtm.sendMessage(`i don't understand`,conversationId);
+                console.log(res);
+            }
+
+/* 
+            // The RTM client can send simple string messages
+            rtm.sendMessage('Hello there!! nearly there', conversationId)
+              .then((res) => {
+                // `res` contains information about the posted message
+                console.log('Message sent: ', res.ts);
+              })
+              .catch(console.error);
+ */
+
+        });
+
+       
 
 
     });

@@ -60,9 +60,10 @@ module.exports.init = function slackClient (token, logLvl = 'debug', nlpClient) 
 
           intent.process(res,function(error, response) {
             if(error) {
-              console.log("Error " + error.message);
+              console.log("Error: " + error.message);
+            } else {
+              return rtm.sendMessage(response,conversationId)
             }
-            return rtm.sendMessage(response,conversationId)
           })
 
         } catch(err) {

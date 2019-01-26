@@ -7,3 +7,10 @@ as well as using natural language processor - Wit.ai
 * Slack's SDK
 * Wit.ai - natural language processor
 * Building and designing a microservice that interfaces with Slack and Wit.ai
+
+### more
+1. node /bin/run.js
+2. open Slack, log in
+3. check bot: franko
+4. ask him "what is the time in Auckland?"
+

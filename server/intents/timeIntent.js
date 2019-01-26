@@ -4,7 +4,7 @@ module.exports.process = function process(intentData,cb) {
 
     if(intentData.entities.intent[0].value != "time") cb(new Error(`not timeIntent, got ${intentData.entities.intent[0].value}`));
 
-    if (!intentData.entities.location) return cb(new Error("missing the location from timeIntent"));
+    if (!intentData.entities.location) return cb(false,("missing the location for time query!"));
 
    // if (intentData.entities.location[0].resolved.values.name) {
     let timezone = "";

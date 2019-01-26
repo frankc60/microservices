@@ -25,6 +25,7 @@ module.exports = function(token) {
                 if(res.statusCode != 200) return cb("ERROR: status code " + res.statusCode);
 
                 const witResponse = handleWitResponse(res);
+                console.log(witResponse)
                 return cb(null,witResponse)
             })
 

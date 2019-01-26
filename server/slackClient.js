@@ -72,13 +72,13 @@ module.exports.init = function slackClient (token, logLvl = 'debug', nlpClient) 
           rtm.sendMessage("sorry, i dont understand", conversationId);
         }
 
-       /*  if (!res.entities.intent) {
+         if (!res.entities.intent) {
           return rtm.sendMessage("sorry, i don't what you are talking about.", conversationId)
         } else if (res.entities.intent[0].value == 'time' && res.entities.location) {
           return rtm.sendMessage(`i don't know the time in ${res.entities.location[0].value}`, conversationId)
         } else {
           return rtm.sendMessage(`i don't understand`, conversationId);
-        } */
+        } 
 
         /*
           // The RTM client can send simple string messages
@@ -93,7 +93,7 @@ module.exports.init = function slackClient (token, logLvl = 'debug', nlpClient) 
    // }
   })
 
-  return rtm
+  return rtm;
 }
 
 // The client is initialized and then started to get an active connection to the platform

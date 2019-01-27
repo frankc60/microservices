@@ -1,12 +1,12 @@
 const {
   RTMClient
-} = require('@slack/client')
+} = require('@slack/client');
 
 // An access token (from your Slack app or custom integration - usually xoxb)
 
 function authenicated (msg) {
   console.log('authenicated : ' + JSON.stringify(msg))
-  console.log(`logged in as ${msg.self.name}`)
+  console.log(`logged in as ${msg.self.name}`);
 }
 
 module.exports.init = function slackClient (token, logLvl = 'debug', nlpClient) {
@@ -34,6 +34,12 @@ module.exports.init = function slackClient (token, logLvl = 'debug', nlpClient) 
 
     //if (message.text.toLowerCase().includes('franko')) {
       nlp.ask(message.text, (err, res) => {
+        if (err) {
+          console.log('error ' + err)
+          return;
+        }
+      
+      
         const conversationId = message.channel
 
         console.log(res)
@@ -46,10 +52,7 @@ module.exports.init = function slackClient (token, logLvl = 'debug', nlpClient) 
       }
 
 
-        if (err) {
-          console.log('error ' + err)
-          // return;
-        }
+      
 
         try {
           if(!res.entities.intent || !res.entities.intent[0].value) {
@@ -77,7 +80,8 @@ module.exports.init = function slackClient (token, logLvl = 'debug', nlpClient) 
         } else if (res.entities.intent[0].value == 'time' && res.entities.location) {
           return rtm.sendMessage(`i don't know the time in ${res.entities.location[0].value}`, conversationId)
         } else {
-          return rtm.sendMessage(`i don't understand`, conversationId);
+           return;
+           //rtm.sendMessage(`i don't understand`, conversationId);
         } 
 
         /*

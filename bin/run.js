@@ -26,6 +26,7 @@ server.on("listening", function() {
 
 rtm.on("authenticated", function() {
 
+    console.log("authenicated")
     server.listen(3000);
 
 });

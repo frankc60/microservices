@@ -13,7 +13,9 @@ as well as using natural language processor - Wit.ai
 1. node /bin/run.js
 2. open Slack, log in
 3. check bot: franko
-4. ask him "what is the time in Auckland?"
-    "see you later"
-    "do you like beer"
+4. ask him "what is the time in Auckland?"  
+    "see you later"  
+    "do you like beer"  
+    "bye"  
+    "thanks"  
 

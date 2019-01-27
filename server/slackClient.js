@@ -13,10 +13,11 @@ module.exports.init = function slackClient(token, logLvl = 'debug', nlpClient) {
   const rtm = new RTMClient(token, {
     LogLevel: logLvl
   });
+  
   const nlp = nlpClient;
+  
   rtm.on('authenticated', (msg) => {
     authenicated(msg);
-    // For structure of `event`, see https://api.slack.com/events/message
   });
 
   rtm.on('message', (message) => {
@@ -59,8 +60,10 @@ module.exports.init = function slackClient(token, logLvl = 'debug', nlpClient) {
           throw new Error("Could not extract intent");
         }
 
+        //load the specific intent file
         const intent = require("./intents/" + res.entities.intent[0].value + "Intent");
 
+        //load the process method of the intent file, with a callback
         intent.process(res, function (error, response) {
           if (error) {
             console.log("Error: " + error.message);
@@ -76,7 +79,7 @@ module.exports.init = function slackClient(token, logLvl = 'debug', nlpClient) {
       }
 
       if (!res.entities.intent) {
-        return rtm.sendMessage("sorry, i don't what you are talking about. no intent found.", conversationId);
+        return rtm.sendMessage("sorry, i don't know what you are talking about. no intent found.", conversationId);
       } else if (res.entities.intent[0].value == 'time' && res.entities.location) {
         return rtm.sendMessage(`i don't know the time in ${res.entities.location[0].value}`, conversationId);
       } else {

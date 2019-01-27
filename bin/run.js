@@ -1,7 +1,11 @@
 const service = require("../server/service");
 const http = require("http");
 const slackClient = require("../server/slackClient.js");
+const locvars = require('dotenv').config(); //store token locally in a slack.env key value pair file.
 
+if (locvars.error) {
+    throw locvars.error;
+}
 
 //Cannot store the slackToken publically (eg. github), so it is local. if u don't have this token, u'll need to create a new one from slack,
 //for example:
@@ -16,14 +20,17 @@ const slackClient = require("../server/slackClient.js");
 //Congigurations pen icon
 //Integration ettings, API / Token
 
-//remove slackToken before pushing to Github!
+//are using dotenv to store these tokens locally. (process.env.XXX)
+
+//remove slackToken before pushing to github.
+const slackToken = process.env.SLACK_TOKEN;
 
 //const slackToken = "xoxb-330610783633-368156099938-uFoZqQbBY0G04Wg5ujQnMQxf";
 const slackLogLevel = "debug";
 
 
 
-const witToken = "RSI4VN7RZSFR6MS5ESBFHU3G3XED4UPT";
+const witToken = "RSI4VN7RZSFR6MS5ESBFHU3G3XED4UPT"; //process.env.WIT_TOKEN;
 const witClient = require("../server/witClient")(witToken);
 
 
@@ -45,6 +52,15 @@ rtm.on("authenticated", function() {
     console.log("authenicated");
     server.listen(3000);
 
+    const channelID = "DAU1N6YN7";
+     
+    rtm.sendMessage("Hi, I'm online now!", channelID)
+        .then((res => {
+            console.log(res)
+        }))
+        .catch((e) => {
+            console.log("There was an error sending a msg to channel ID: " + channelID + "\n" + e);
+        });
 });
 
 

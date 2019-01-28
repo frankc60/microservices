@@ -57,11 +57,15 @@ module.exports.init = function slackClient(token, logLvl = 'debug', nlpClient) {
 
       try {
         if (!res.entities.intent || !res.entities.intent[0].value) {
-          throw new Error("Could not extract intent");
+          rtm.sendMessage("sorry, i don't know what you are talking about. no intent found.", conversationId);
+          new Error("Could not extract intent");
+          
         }
 
         //load the specific intent file
         const intent = require("./intents/" + res.entities.intent[0].value + "Intent");
+
+        console.log("got intent: " + res.entities.intent[0].value);
 
         //load the process method of the intent file, with a callback
         intent.process(res, function (error, response) {
@@ -72,19 +76,14 @@ module.exports.init = function slackClient(token, logLvl = 'debug', nlpClient) {
           }
         });
 
+
+
       } catch (err) {
         console.log(err);
-        console.log(res);
-        rtm.sendMessage("sorry, i dont understand", conversationId);
+       // console.log(res);
+        rtm.sendMessage(err, conversationId);
       }
 
-      if (!res.entities.intent) {
-        return rtm.sendMessage("sorry, i don't know what you are talking about. no intent found.", conversationId);
-      } else if (res.entities.intent[0].value == 'time' && res.entities.location) {
-        return rtm.sendMessage(`i don't know the time in ${res.entities.location[0].value}`, conversationId);
-      } else {
-        return; // rtm.sendMessage(`i don't understand`, conversationId);
-      }
 
       /*
         // The RTM client can send simple string messages

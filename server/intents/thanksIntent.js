@@ -19,9 +19,7 @@
 
 module.exports.process = function process(intentData,cb) {
 
-    if(intentData.entities.intent[0].value != "thanks") cb(new Error(`no thanks, got ${intentData.entities.intent[0].value} instead.`));
-
-    if (intentData.entities.intent[0].value == "thanks") {
+      if (intentData.entities.intent[0].value == "thanks") {
         cb(false, (`I'm ${intentData.entities.intent[0].confidence*100}% sure you are thankful.`));
     }
     

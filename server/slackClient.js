@@ -20,16 +20,16 @@ module.exports.init = function slackClient(token, logLvl = 'debug', nlpClient) {
     authenicated(msg);
   });
 
-  rtm.on('file_created', (event) => {
+  rtm.on('pin_added', (event) => {
    
     console.log(`
-    event-file_created:
+    event:pin_added:
     ${JSON.stringify(event)}
     `);
 
-    //let fileId = event.file_id;
+    let channelID = event.channel_id;
 
-    // rtm.sendMessage("a new file was created! " + fileId + ".", fileId);
+    rtm.sendMessage("a new Pin was added!", channelID);
 
   })
 

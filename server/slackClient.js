@@ -59,7 +59,7 @@ module.exports.init = function slackClient(token, logLvl = 'debug', nlpClient) {
       try {
         res = JSON.parse(res);
       } catch (e) {
-        console.log("Error parseing res: " + e); // error in the above string (in this case, yes)!
+        console.log("Error parsing res: " + e); // error in the above string (in this case, yes)!
       }
 
 
@@ -67,8 +67,8 @@ module.exports.init = function slackClient(token, logLvl = 'debug', nlpClient) {
 
       try {
         if (!res.entities.intent || !res.entities.intent[0].value) {
-          rtm.sendMessage("sorry, i don't know what you are talking about. no intent found.", conversationId);
-          new Error("Could not extract intent");
+       //   rtm.sendMessage("sorry, i don't know what you are talking about. no intent found.", conversationId);
+        //  new Error("Could not extract intent");
           
         }
 

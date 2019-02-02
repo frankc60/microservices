@@ -15,6 +15,7 @@ module.exports.process = function process(intentData, cb) {
         cb(false,`stdout: ${data}`);
     });
 
+    
     //error event handler for exec cmd
     ls.stderr.on('data', data => {
         cb(`stderr: ${data}`);

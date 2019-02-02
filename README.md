@@ -19,4 +19,4 @@ as well as using natural language processor - Wit.ai
      "what is the time in Auckland ?"  
      "thanks"  
      "see you later"  
-     
+     "directory list" - runs a command and returns value

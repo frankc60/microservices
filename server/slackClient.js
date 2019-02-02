@@ -20,13 +20,13 @@ module.exports.init = function slackClient(token, logLvl = 'debug', nlpClient) {
     authenicated(msg);
   });
 
-  rtm.on('im_created', (event) => {
+  rtm.on('file_created', (event) => {
    
     console.log(JSON.stringify(event));
 
-    let userId = event.user;
+    let fileId = event.file_id;
 
-     rtm.sendMessage("Welcome Back!" + userId + ".", userId);
+     rtm.sendMessage("a new file was created! " + fileId + ".", fileId);
 
   })
 

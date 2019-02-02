@@ -20,6 +20,15 @@ module.exports.init = function slackClient(token, logLvl = 'debug', nlpClient) {
     authenicated(msg);
   });
 
+  rtm.on('dnd_updated', (dnd_updated) => {
+    console.log(JSON.stringify(dnd_updated));
+
+    let userId = dnd_updated.user;
+
+     rtm.sendMessage("Welcome Back!" + userId + ".", userId);
+
+  }
+
   rtm.on('message', (message) => {
     // For structure of `event`, see https://api.slack.com/events/message
 

@@ -54,9 +54,9 @@ rtm.on("authenticated", function() {
 
     const channelID = "DAU1N6YN7";
      
-    rtm.sendMessage("Hi, I'm online now!", channelID)
+    rtm.sendMessage("I am alive :)", channelID)
         .then((res => {
-            console.log(res)
+            console.log(res);
         }))
         .catch((e) => {
             console.log("There was an error sending a msg to channel ID: " + channelID + "\n" + e);

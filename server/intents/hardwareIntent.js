@@ -31,7 +31,7 @@ module.exports.process = function process(intentData, cb) {
     });
 
     //callback, informing slack client the command is running, output to follow after.
-    return cb(false, ("Requesting HARDWARE - CPU output @ " + startTime() + ""));
+    return cb(false, ("Requesting HARDWARE - CPU output @ " + startTime() + ", this will takes a few seconds..."));
 
 
 };

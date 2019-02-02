@@ -23,3 +23,5 @@ as well as using natural language processor - Wit.ai
      "directory list" - runs a command and returns value
      "info" - server info command return values
      "hardware" - pauses a few seconds before replying
+
+     Try adding a pin to a message, and frankbot will respond to the event.

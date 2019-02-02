@@ -5,15 +5,18 @@ const {
     spawn
 } = require('child_process');
 
-module.exports.process = function process(intentData, cb) {
+module.exports.process = async process(intentData, cb) {
 
     //exec cmd
-    const ls = spawn('lscpu');
+    const ls = spawn('ls');
 
+    await setTimeout(() => {
+        cb(false, `HARDWARE: This is a really big cpu :p`);
+    }, 10000); //10 secs
 
     //event handler for exec cmd
     ls.stdout.on('data', data => {
-        cb(false, `stdout: ${data}`);
+        //cb(false, `stdout: ${data}`);
     });
 
     //error event handler for exec cmd

@@ -50,7 +50,7 @@ server.on("listening", function() {
 rtm.on("authenticated", function() {
 
     console.log("authenicated");
-    server.listen(os.Getenv("PORT"));
+    server.listen(process.env.PORT || 3000);
 
     const channelID = "DAU1N6YN7";
      

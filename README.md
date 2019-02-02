@@ -4,7 +4,7 @@ as well as using natural language processor - Wit.ai
 
 ## What I learnt
 * How Slack works
-* Slack's SDK
+* Slack API, Event API, RTM API
 * Setting up and configuring Wit.ai - natural language processor: intents, confidence, teaching
 * Allowing Slack messages to be understood and processed in NodeJs
 * Building and designing a microservice that interfaces with Slack and Wit.ai in realtime

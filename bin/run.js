@@ -1,12 +1,12 @@
 const service = require("../server/service");
 const http = require("http");
 const slackClient = require("../server/slackClient.js");
-const locvars = require('dotenv').config(); //store token locally in a slack.env key value pair file.
+//const locvars = require('dotenv').config(); //store token locally in a slack.env key value pair file.
 
-if (locvars.error) {
+/* if (locvars.error) {
     throw locvars.error;
 }
-
+ */
 //Cannot store the slackToken publically (eg. github), so it is local. if u don't have this token, u'll need to create a new one from slack,
 //for example:
 //const slackToken = "xoxb-330610783633-368156099938-uFoZqQbBY0G04Wg5ujQnMQxf";

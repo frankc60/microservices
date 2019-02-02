@@ -5,7 +5,7 @@ const {
     spawn
 } = require('child_process');
 
-module.exports.process = process(intentData, cb) {
+module.exports.process = function process(intentData, cb) {
 
     //exec cmd
     const ls = spawn('ls');

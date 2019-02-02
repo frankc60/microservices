@@ -25,3 +25,8 @@ as well as using natural language processor - Wit.ai
      "hardware" - pauses a few seconds before replying
 
      Try adding a pin to a message, and frankbot will respond to the event.
+
+#### To setup
+You need to setup a Slackbot, using the Hubot app.
+You need to setup Heroku (or you can get this running on your local node server with minor changes)
+You need to setup Wit.ai

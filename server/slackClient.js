@@ -22,11 +22,14 @@ module.exports.init = function slackClient(token, logLvl = 'debug', nlpClient) {
 
   rtm.on('file_created', (event) => {
    
-    console.log(JSON.stringify(event));
+    console.log(`
+    event-file_created:
+    ${JSON.stringify(event)}
+    `);
 
-    let fileId = event.file_id;
+    //let fileId = event.file_id;
 
-     rtm.sendMessage("a new file was created! " + fileId + ".", fileId);
+    // rtm.sendMessage("a new file was created! " + fileId + ".", fileId);
 
   })
 

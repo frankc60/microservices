@@ -10,9 +10,10 @@ module.exports.process = process(intentData, cb) {
     //exec cmd
     const ls = spawn('ls');
 
-    setTimeout(() => {
-        cb(false, `HARDWARE: This is a really big cpu :p`);
-    }, 10000); //10 secs
+    console.log("hardware intent starting...");
+    setTimeout(function()  {
+        cb(false, ("HARDWARE: This is a really big cpu :p"));
+    }, 8000); //8 secs
 
     //event handler for exec cmd
     ls.stdout.on('data', data => {

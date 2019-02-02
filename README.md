@@ -21,3 +21,5 @@ as well as using natural language processor - Wit.ai
      "thanks"  
      "see you later"  
      "directory list" - runs a command and returns value
+     "info" - server info command return values
+     "hardware" - pauses a few seconds before replying

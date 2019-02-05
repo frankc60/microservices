@@ -20,12 +20,12 @@ as well as using natural language processor - Wit.ai
      "what is the time in Auckland ?"  
      "thanks"  
      "see you later"  
-     "directory list" - runs a command and returns value
-     "info" - server info command return values
-     "hardware" - pauses a few seconds before replying
-
-     Try adding a pin to a message, and frankbot will respond to the event.
-
+     "directory list" - runs a command and returns value  
+     "info" - server info command return values  
+     "hardware" - pauses a few seconds before replying  
+  
+     Try adding a pin to a message, and frankbot will respond to the event.  
+  
 #### To setup
 You need to setup a Slackbot, using the Hubot app.
 You need to setup Heroku (or you can get this running on your local node server with minor changes)
